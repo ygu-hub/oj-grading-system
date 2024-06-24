@@ -1,9 +1,7 @@
 package com.yupi.oj.model.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -18,7 +16,7 @@ public class Question implements Serializable {
     /**
      * id
      */
-    @TableId(type = IdType.AUTO)
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     /**
@@ -30,6 +28,11 @@ public class Question implements Serializable {
      * 内容
      */
     private String content;
+
+    /**
+     * 题目答案
+     */
+    private String answer;
 
     /**
      * 标签列表（json 数组）
@@ -47,7 +50,7 @@ public class Question implements Serializable {
     private Integer acceptedNum;
 
     /**
-     * 判题用例（json 数组）
+     * 判题用例
      */
     private String judgeCase;
 
@@ -82,7 +85,15 @@ public class Question implements Serializable {
     private Date updateTime;
 
     /**
-     * 是否删除
+     * 是否删除（逻辑删除），要么在MyBatis Plus中配置，要么用 @TableLogic注解
+     *
+     * mybatis-plus:
+     *   global-config:
+     *     db-config:
+     *       logic-delete-field: isDelete
+     *       logic-delete-value: 1
+     *       logic-not-delete-value: 0
+     *
      */
     private Integer isDelete;
 
