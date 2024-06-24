@@ -1,0 +1,32 @@
+package com.yupi.oj.model.dto.question;
+
+import lombok.Data;
+
+import java.io.Serializable;
+
+/**
+ * 题目用例：
+ * [
+ *  {
+ *      input: "1 2",
+ *      output: "3 4'
+ *  },
+ *  {
+ *     input: "1 3",
+ *     output: "2 4'
+ *  }
+ * ]
+ */
+@Data
+public class JudgeCase implements Serializable {
+    /**
+     * 输入用例
+     */
+    private String input;
+    /**
+     * 输出用例
+     */
+    private String output;
+
+    private static final long serialVersionUID = 1L;
+}
