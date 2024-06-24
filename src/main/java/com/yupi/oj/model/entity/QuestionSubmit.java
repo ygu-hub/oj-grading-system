@@ -16,9 +16,9 @@ import lombok.Data;
 @Data
 public class QuestionSubmit implements Serializable {
     /**
-     * id
+     * 题目提交 id
      */
-    @TableId(type = IdType.AUTO)
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     /**
@@ -32,7 +32,7 @@ public class QuestionSubmit implements Serializable {
     private String code;
 
     /**
-     * 判题信息（json 对象）
+     * 判题信息
      */
     private String judgeInfo;
 
@@ -60,6 +60,11 @@ public class QuestionSubmit implements Serializable {
      * 更新时间
      */
     private Date updateTime;
+
+    /**
+     * 是否删除
+     */
+    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
